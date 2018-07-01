@@ -2,7 +2,7 @@ import re
 
 
 def emojify(string):
-    rules = {"Vegane Speise":"🌱👌","Kinderteller":"🧒","Mit Fisch bzw. Meeresfrüchten":"🐟", "Mit Geflügel":"🐣", "Ohne Fleisch":"🌱", "Knoblauch":"Knofi 👌👌"}
+    rules = {"Vegane Speise":"🌱👌","Kinderteller":"🧒","Mit Fisch bzw. Meeresfrüchten":"🐟", "Mit Geflügel":"🐣", "Ohne Fleisch":"🌱", "Knoblauch":"Knofi 👌👌", "Mit Schweinefleisch":'🐷',"Mit Rindfleisch":'🐄'}
     for key in rules:
         string = re.sub(key,rules[key],string)
     return string

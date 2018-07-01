@@ -4,8 +4,8 @@ import telegram.ext as tex
 import helpers
 from scrapper import scrap
 import datetime
-import numpy as np
 import pickle
+import sys
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
@@ -48,6 +48,7 @@ def help(bot, update):
     `/short_menu` — Zeigt das aktuelle Menü in Kurzfassung an
     `/subscribe` — Das Menü wird jeden Werktag um 11 Uhr automatisch gepostet
     `/unsubscribe` — Deaktiviert das automatische Posten des Menüs
+    Bug reports und Verbesserungsvorschläge bitte an @elayn
     (c) by Max Pernklau."""
     #`/grillstation` — Zeigt das Menü der Grillstation an
     #`/beilagen` — Zeigt an, welche Beilagen es im Moment gibt
@@ -57,6 +58,7 @@ dispatcher.add_handler(tex.CommandHandler('help', help))
 
 def menu(bot,update):
     menu = ""
+    menu += "Menü für "+latest_menu["Datum"]+"\n\n"
     for i in latest_menu["Menu"]:
         tag_line = ""
         for tag in i.tags:
@@ -64,8 +66,11 @@ def menu(bot,update):
         menu += tag_line + " " + i.beautiful_description() + ", " + i.price + "\n"
 
     menu = helpers.emojify(menu)
-    print(menu)
-    bot.sendMessage(chat_id = update.message.chat_id, text = menu, parse_mode = telegram.ParseMode.MARKDOWN)
+    if type(update)==int:
+        chat_id = update
+    else:
+        chat_id = update.message.chat_id
+    bot.sendMessage(chat_id = chat_id, text = menu, parse_mode = telegram.ParseMode.MARKDOWN)
 dispatcher.add_handler(tex.CommandHandler('menu', menu))
 
 def short_menu(bot,update):
@@ -87,23 +92,28 @@ dispatcher.add_handler(tex.CommandHandler('short_menu', short_menu))
 
 
 latest_menu = None
-def fetch_and_send_menu():
+def fetch_and_send_menu(bot, job):
+    print("Fetching menu...")
     if datetime.datetime.today().weekday() >= 5:  # it's Saturday or Sunday
+        print("No menu on weekends.")
         return
 
     global latest_menu
-    print("Fetching Menu")
     try:
         latest_menu = scrap()
     except:
+        print("Couldn't fetch menu: ", sys.exc_info()[0])
         latest_menu = None
         updater.job_queue.run_once(fetch_and_send_menu, 5)
         return
-    pickle.dump(latest_menu, open("menus/"+datetime.datetime.today().date().toordinal()+".pickle","wb"))
+    pickle.dump(latest_menu, open("menus/"+str(datetime.datetime.today().date().toordinal())+".pickle","wb"))
 
+    print("Sending menu to",len(subscribers),"subscribers.")
     for s in subscribers:
         menu(bot, s)
 updater.job_queue.run_daily(fetch_and_send_menu, datetime.time(11,00))
+#updater.job_queue.run_repeating(fetch_and_send_menu,10)
 
-print("Waiting for clients")
+
+print("Bot active.")
 updater.start_polling()
