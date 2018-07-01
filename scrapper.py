@@ -9,17 +9,23 @@ def scrap():
 
     url = "https://www.stwdo.de/mensa-co/tu-dortmund/hauptmensa/"
     #for testing purposes
-    url = "https://www.stwdo.de/mensa-co/tu-dortmund/hauptmensa/?tx_pamensa_mensa%5Baction%5D=day&tx_pamensa_mensa%5Bcontroller%5D=OnlinePlan&cHash=d69c17785f24fe4043453debb1687c81"
+    #url = "https://www.stwdo.de/mensa-co/tu-dortmund/hauptmensa/?tx_pamensa_mensa%5Baction%5D=day&tx_pamensa_mensa%5Bcontroller%5D=OnlinePlan&cHash=d69c17785f24fe4043453debb1687c81"
     page = urlopen(url)
     soup = BeautifulSoup(page, 'html.parser')
 
     # Öffnungszeiten
-    box = soup.find('span',attrs={"id":"timer--inner-1"})
-    text = box.text.strip()
-    search_result = re.search(r"((\d.*\d))",text)
-    results["Öffnungszeiten"] = search_result.group(0).lower()
-    results["Öffnungszeiten"]
+    try:
+        box = soup.find('span',attrs={"id":"timer--inner-1"})
+        text = box.text.strip()
+        search_result = re.search(r"((\d.*\d))",text)
+        results["Öffnungszeiten"] = search_result.group(0).lower()
+    except AttributeError:
+        results["Öffnungszeiten"] = "Geschlossen"
 
+    # Datum
+    box = soup.find(name = 'div', attrs = {"class": "meals-wrapper"}).find(name = 'h2')
+    text = box.text.strip()
+    results["Datum"] = re.search(r"(\w*, \d\d.*)", text).group(0)
 
     # Menü
     menu = soup.find('div',attrs={"class":"meals-body"})

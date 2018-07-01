@@ -3,26 +3,57 @@ import logging
 import telegram.ext as tex
 import helpers
 from scrapper import scrap
+import datetime
+import numpy as np
+import pickle
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 updater = tex.Updater(input("Token plx owo"))
 dispatcher = updater.dispatcher
 bot = updater.bot
-subscribers = []
+try:
+    subscribers = pickle.load(open("subscribers.pickle", "rb"))
+    print("Loaded",len(subscribers),"subscribers from file.")
+except:
+    print("Didn't load subscribers from file!")
+    subscribers = []
 
 print("Started Dr. Mensa Bot:", bot.getMe())
 
 # Handler functions
 def start(bot, update):
-    message = "Der *Drop-in replacement (Dr.) Mensa Bot* liefert nun jeden pünklich Tag das Menü."
-    subscribers.append(update.message.chat_id)
+    message = "Dies ist der _Drop-in replacement (Dr.) Mensa Bot_!"
     bot.sendMessage(chat_id=update.message.chat_id, text=message,parse_mode=telegram.ParseMode.MARKDOWN)
+    help(bot, update)
+dispatcher.add_handler(tex.CommandHandler('start', start))
+
+def subscribe(bot,update):
+    message = "Ihr bekommt ab jetzt jeden Tag um 11 Uhr das Mensa-Menü automatisch zugeschickt!"
+    subscribers.append(update.message.chat_id)
+    pickle.dump(subscribers,open("subscribers.pickle","wb"))
+    bot.sendMessage(chat_id = update.message.chat_id, text = message, parse_mode = telegram.ParseMode.MARKDOWN)
+dispatcher.add_handler(tex.CommandHandler('subscribe', subscribe))
+
+def unsubscribe(bot,update):
+    message = "Ihr bekommt ab jetzt nichts mehr automatisch zugeschickt!"
+    subscribers.remove(update.message.chat_id)
+    pickle.dump(subscribers, open("subscribers.pickle", "wb"))
+    bot.sendMessage(chat_id = update.message.chat_id, text = message, parse_mode = telegram.ParseMode.MARKDOWN)
+dispatcher.add_handler(tex.CommandHandler('unsubscribe', unsubscribe))
 
 def help(bot, update):
     message = """Commands:
+    `/menu` — Zeigt das aktuelle Menü an
+    `/short_menu` — Zeigt das aktuelle Menü in Kurzfassung an
+    `/subscribe` — Das Menü wird jeden Werktag um 11 Uhr automatisch gepostet
+    `/unsubscribe` — Deaktiviert das automatische Posten des Menüs
     (c) by Max Pernklau."""
-    bot.sendMessage(chat_id=update.message.chat_id, text=message)
+    #`/grillstation` — Zeigt das Menü der Grillstation an
+    #`/beilagen` — Zeigt an, welche Beilagen es im Moment gibt
+    bot.sendMessage(chat_id = update.message.chat_id, text = message, parse_mode = telegram.ParseMode.MARKDOWN)
+dispatcher.add_handler(tex.CommandHandler('help', help))
+
 
 def menu(bot,update):
     menu = ""
@@ -35,6 +66,7 @@ def menu(bot,update):
     menu = helpers.emojify(menu)
     print(menu)
     bot.sendMessage(chat_id = update.message.chat_id, text = menu, parse_mode = telegram.ParseMode.MARKDOWN)
+dispatcher.add_handler(tex.CommandHandler('menu', menu))
 
 def short_menu(bot,update):
     menu = ""
@@ -45,22 +77,33 @@ def short_menu(bot,update):
         menu += i.beautiful_description() + "\n"
 
     menu = helpers.completely_emojify(menu)
-    print(menu)
-    bot.sendMessage(chat_id = update.message.chat_id, text = menu, parse_mode = telegram.ParseMode.MARKDOWN)
 
-latest_menu = None
-def fetch_menu():
-    global latest_menu
-    print("Fetching Menu")
-    latest_menu = scrap()
-
-
-dispatcher.add_handler(tex.CommandHandler('start', start))
-dispatcher.add_handler(tex.CommandHandler('help', help))
-dispatcher.add_handler(tex.CommandHandler('menu', menu))
+    if type(update)==str:
+        chat_id = update
+    else:
+        chat_id = update.message.chat_id
+    bot.sendMessage(chat_id = chat_id, text = menu, parse_mode = telegram.ParseMode.MARKDOWN)
 dispatcher.add_handler(tex.CommandHandler('short_menu', short_menu))
 
-fetch_menu()
+
+latest_menu = None
+def fetch_and_send_menu():
+    if datetime.datetime.today().weekday() >= 5:  # it's Saturday or Sunday
+        return
+
+    global latest_menu
+    print("Fetching Menu")
+    try:
+        latest_menu = scrap()
+    except:
+        latest_menu = None
+        updater.job_queue.run_once(fetch_and_send_menu, 5)
+        return
+    pickle.dump(latest_menu, open("menus/"+datetime.datetime.today().date().toordinal()+".pickle","wb"))
+
+    for s in subscribers:
+        menu(bot, s)
+updater.job_queue.run_daily(fetch_and_send_menu, datetime.time(11,00))
 
 print("Waiting for clients")
 updater.start_polling()
