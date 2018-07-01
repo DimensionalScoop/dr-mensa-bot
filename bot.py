@@ -83,8 +83,7 @@ def help(bot, update):
     🥗: dazu Salat
 
     
-    Bug reports und Verbesserungsvorschläge bitte an @elayn
-    (c) by Max Pernklau."""
+    Bug reports und Verbesserungsvorschläge bitte an @elayn"""
     # `/grillstation` — Zeigt das Menü der Grillstation an
     # `/beilagen` — Zeigt an, welche Beilagen es im Moment gibt
     bot.sendMessage(chat_id = update.message.chat_id, text = message, parse_mode = telegram.ParseMode.MARKDOWN)
