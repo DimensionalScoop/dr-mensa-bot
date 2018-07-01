@@ -92,8 +92,22 @@ def help(bot, update):
 
 dispatcher.add_handler(tex.CommandHandler('help', help))
 
+def send_error_msg(bot,update,message="Ich kann kein Menü für heute finden."):
+    if type(update) == int:
+        chat_id = update
+    else:
+        chat_id = update.message.chat_id
+
+    bot.sendMessage(chat_id = chat_id, text = message, parse_mode = telegram.ParseMode.MARKDOWN)
+    bot.send_photo(chat_id = chat_id, photo = open('images/archives.jpg', 'rb'))
+dispatcher.add_handler(tex.CommandHandler('error', send_error_msg))
+
 
 def menu(bot, update):
+    if latest_menu is None:
+        send_error_msg(bot,update,"Ich kann kein Menü für heute finden.")
+        return
+
     menu = ""
     menu += "Menü für " + latest_menu["Datum"] + "\n\n"
     for i in latest_menu["Menu"]:
@@ -103,10 +117,12 @@ def menu(bot, update):
         menu += tag_line + i.allergens() + " | " + i.beautiful_description() + ", " + i.price + "\n"
 
     menu = helpers.emojify(menu)
+
     if type(update) == int:
         chat_id = update
     else:
         chat_id = update.message.chat_id
+
     bot.sendMessage(chat_id = chat_id, text = menu, parse_mode = telegram.ParseMode.MARKDOWN)
 
 
@@ -128,20 +144,23 @@ def short_menu(bot, update):
 dispatcher.add_handler(tex.CommandHandler('short_menu', short_menu))
 
 latest_menu = None
-
-
 def fetch_menu(bot = None, job = None, callback = None):
     print("Fetching menu...")
     global latest_menu
+
+    latest_menu = None
     try:
         latest_menu = scrap()
     except:
         print("Couldn't fetch menu: ", sys.exc_info()[0])
-        latest_menu = None
-        updater.job_queue.run_once(fetch_menu, 5)
+        # updater.job_queue.run_once(fetch_menu, 5)
         return
 
-    pickle.dump(latest_menu, open("menus/" + time.strftime("%m-%d-%Y") + ".pickle", "wb"))
+    try:
+        pickle.dump(latest_menu, open("menus/" + time.strftime("%m-%d-%Y") + ".pickle", "wb"))
+    except:
+        print("Couldn't pickle menu to disk!")
+        pass # this is not important enough to crash the bot
 
     if callback is not None:
         callback()
@@ -158,6 +177,18 @@ def send_menu_to_subscribers():
     print("Sending menu to", len(subscribers), "subscribers.")
     for s in subscribers:
         menu(bot, s)
+
+
+def how_hot_am_i(bot,update):
+    chat_id = update.message.chat_id
+    bot.send_chat_action(chat_id = chat_id, action = telegram.ChatAction.TYPING)
+    time.sleep(2)
+    bot.send_photo(chat_id = chat_id, photo = open('images/pretty-basic-1.png', 'rb'))
+    bot.send_chat_action(chat_id = chat_id, action = telegram.ChatAction.TYPING)
+    time.sleep(5)
+    bot.send_photo(chat_id = chat_id, photo = open('images/pretty-basic-2.png', 'rb'))
+dispatcher.add_handler(tex.CommandHandler('how_hot_am_i', how_hot_am_i))
+
 
 
 updater.job_queue.run_daily(fetch_and_send_menu, datetime.time(11, 00))

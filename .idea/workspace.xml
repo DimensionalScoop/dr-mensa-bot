@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="12e90a9a-beb3-405b-a283-d5ef158db442" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/usage.statistics.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/usage.statistics.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/helpers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/mensa_bot_drop_in_repl$bot.coverage" NAME="bot Coverage Results" MODIFIED="1530480214792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/mensa_bot_drop_in_repl$bot.coverage" NAME="bot Coverage Results" MODIFIED="1530487388395" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mensa_bot_drop_in_repl$testing.coverage" NAME="testing Coverage Results" MODIFIED="1530479314490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
@@ -34,7 +35,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scrapper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
+            <state relative-caret-position="920">
               <caret line="44" column="275" selection-start-line="44" selection-start-column="275" selection-end-line="44" selection-end-column="275" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
@@ -43,26 +44,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1238">
-              <caret line="75" column="13" lean-forward="true" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
+            <state relative-caret-position="230">
+              <caret line="187" column="16" selection-start-line="187" selection-start-column="16" selection-end-line="187" selection-end-column="16" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <marker date="1530480376044" expanded="true" signature="1669:1745" ph="..." />
-                <marker date="1530480376044" expanded="true" signature="4053:4451" ph="..." />
-                <marker date="1530480376044" expanded="true" signature="4700:4813" ph="..." />
+                <marker date="1530487074462" expanded="true" signature="1669:1745" ph="..." />
+                <marker date="1530487074462" expanded="true" signature="3029:3383" ph="..." />
+                <marker date="1530487074462" expanded="true" signature="3405:3410" ph="..." />
+                <marker date="1530487074462" expanded="true" signature="4602:5132" ph="..." />
+                <marker date="1530487074462" expanded="true" signature="5381:6009" ph="..." />
+                <marker date="1530487074462" expanded="true" signature="5659:6009" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/helpers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="50" column="62" lean-forward="true" selection-start-line="50" selection-start-column="62" selection-end-line="50" selection-end-column="62" />
+            <state relative-caret-position="357">
+              <caret line="70" column="49" selection-start-line="70" selection-start-column="49" selection-end-line="70" selection-end-column="49" />
               <folding>
                 <marker date="1530480646289" expanded="true" signature="282:286" ph="..." />
                 <marker date="1530480646289" expanded="true" signature="2185:2506" ph="..." />
@@ -75,8 +79,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="7" column="24" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+            <state relative-caret-position="138">
+              <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -96,6 +100,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>thea</find>
+      <find>error</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -109,8 +114,8 @@
       <list>
         <option value="$PROJECT_DIR$/testing.py" />
         <option value="$PROJECT_DIR$/scrapper.py" />
-        <option value="$PROJECT_DIR$/bot.py" />
         <option value="$PROJECT_DIR$/helpers.py" />
+        <option value="$PROJECT_DIR$/bot.py" />
       </list>
     </option>
   </component>
@@ -121,10 +126,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="677" />
-    <option name="y" value="-144" />
-    <option name="width" value="661" />
-    <option name="height" value="778" />
+    <option name="x" value="676" />
+    <option name="y" value="-168" />
+    <option name="width" value="653" />
+    <option name="height" value="773" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -229,10 +234,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="-24" width="1368" height="793" extended-state="6" />
-    <editor active="true" />
+    <frame x="-1" y="-24" width="1368" height="793" extended-state="7" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10574018" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.049848944" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -279,7 +283,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scrapper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
+        <state relative-caret-position="920">
           <caret line="44" column="275" selection-start-line="44" selection-start-column="275" selection-end-line="44" selection-end-column="275" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
@@ -289,35 +293,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/testing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="24" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+        <state relative-caret-position="138">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1238">
-          <caret line="75" column="13" lean-forward="true" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <marker date="1530480376044" expanded="true" signature="1669:1745" ph="..." />
-            <marker date="1530480376044" expanded="true" signature="4053:4451" ph="..." />
-            <marker date="1530480376044" expanded="true" signature="4700:4813" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/helpers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="50" column="62" lean-forward="true" selection-start-line="50" selection-start-column="62" selection-end-line="50" selection-end-column="62" />
+        <state relative-caret-position="357">
+          <caret line="70" column="49" selection-start-line="70" selection-start-column="49" selection-end-line="70" selection-end-column="49" />
           <folding>
             <marker date="1530480646289" expanded="true" signature="282:286" ph="..." />
             <marker date="1530480646289" expanded="true" signature="2185:2506" ph="..." />
             <marker date="1530480646289" expanded="true" signature="2782:2788" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="187" column="16" selection-start-line="187" selection-start-column="16" selection-end-line="187" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <marker date="1530487074462" expanded="true" signature="1669:1745" ph="..." />
+            <marker date="1530487074462" expanded="true" signature="3029:3383" ph="..." />
+            <marker date="1530487074462" expanded="true" signature="3405:3410" ph="..." />
+            <marker date="1530487074462" expanded="true" signature="4602:5132" ph="..." />
+            <marker date="1530487074462" expanded="true" signature="5381:6009" ph="..." />
+            <marker date="1530487074462" expanded="true" signature="5659:6009" ph="..." />
           </folding>
         </state>
       </provider>
