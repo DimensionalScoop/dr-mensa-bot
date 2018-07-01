@@ -92,7 +92,7 @@ dispatcher.add_handler(tex.CommandHandler('short_menu', short_menu))
 
 
 latest_menu = None
-def fetch_and_send_menu(bot, job):
+def fetch_and_send_menu(bot, job, send_to_subscribers=True):
     print("Fetching menu...")
     if datetime.datetime.today().weekday() >= 5:  # it's Saturday or Sunday
         print("No menu on weekends.")
@@ -108,12 +108,13 @@ def fetch_and_send_menu(bot, job):
         return
     pickle.dump(latest_menu, open("menus/"+str(datetime.datetime.today().date().toordinal())+".pickle","wb"))
 
-    print("Sending menu to",len(subscribers),"subscribers.")
-    for s in subscribers:
-        menu(bot, s)
+    if send_to_subscribers:
+        print("Sending menu to",len(subscribers),"subscribers.")
+        for s in subscribers:
+            menu(bot, s)
 updater.job_queue.run_daily(fetch_and_send_menu, datetime.time(11,00))
 #updater.job_queue.run_repeating(fetch_and_send_menu,10)
 
-
+fetch_and_send_menu(bot,None,False)
 print("Bot active.")
 updater.start_polling()
