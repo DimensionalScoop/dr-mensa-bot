@@ -60,6 +60,24 @@ def help(bot, update):
     `/short_menu` — Zeigt das aktuelle Menü in Kurzfassung an
     `/subscribe` — Das Menü wird jeden Werktag um 11 Uhr automatisch gepostet
     `/unsubscribe` — Deaktiviert das automatische Posten des Menüs
+    
+    Bedeutung der Emojis:
+    Vegane Speise:🌱👌
+    Ohne Fleisch:🌱
+    Mit Fisch bzw. Meeresfrüchten:🐟
+    Mit Geflügel:🐣
+    Mit Schweinefleisch:🐷
+    Mit Rindfleisch:🐄
+    
+    Folgende Inhaltsstoffe werden berücksichtigt:
+    11:🥃 (Alkohol)
+    20[a-f]:🌾 (Gluten aus verschiedenen Quellen)
+    24:🥜 (Erdnüsse)
+    25:[Soja]
+    26:🥛 (Milch)
+    27[a-g]:🌰 (verschiedene Nüsse, aber keine Erdnüsse)
+
+    
     Bug reports und Verbesserungsvorschläge bitte an @elayn
     (c) by Max Pernklau."""
     # `/grillstation` — Zeigt das Menü der Grillstation an
@@ -77,7 +95,7 @@ def menu(bot, update):
         tag_line = ""
         for tag in i.tags:
             tag_line += tag if tag != "Kinderteller" else ""
-        menu += tag_line + " " + i.beautiful_description() + ", " + i.price + "\n"
+        menu += tag_line + i.allergens() + " | " + i.beautiful_description() + ", " + i.price + "\n"
 
     menu = helpers.emojify(menu)
     if type(update) == int:
@@ -93,12 +111,7 @@ dispatcher.add_handler(tex.CommandHandler('menu', menu))
 def short_menu(bot, update):
     menu = ""
     for i in latest_menu["Menu"]:
-        tag_line = ""
-        for tag in i.tags:
-            tag_line += tag if tag != "Kinderteller" else ""
-        menu += i.beautiful_description() + "\n"
-
-    menu = helpers.completely_emojify(menu)
+        menu += i.short_description() + "\n"
 
     if type(update) == str:
         chat_id = update

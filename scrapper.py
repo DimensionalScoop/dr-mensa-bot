@@ -42,6 +42,6 @@ def scrap():
                 gerichte.append(Gericht(category,desc,tags,price))
 
     results["FullMenu"] = gerichte
-    results["Menu"] = list([i for i in gerichte if (i.category == "Tagesgericht" or i.category == "Menü 1"  or i.category == "Menü 2" or i.category=="Vegetarisches Menü" or i.category=="Aktionsteller Fisch" or i.category=="Aktionsteller Vegan")])
+    results["Menu"] = list([i for i in gerichte if (i.category == "Tagesgericht" or i.category == "Menü 1"  or i.category == "Menü 2" or i.category=="Vegetarisches Menü" or i.category=="Aktionsteller Fisch" or i.category=="Aktionsteller Vegan" or i.category == "Aktionsteller")])
 
     return results
