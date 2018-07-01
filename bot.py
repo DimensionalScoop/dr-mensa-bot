@@ -76,6 +76,11 @@ def help(bot, update):
     25:[Soja]
     26:🥛 (Milch)
     27[a-g]:🌰 (verschiedene Nüsse, aber keine Erdnüsse)
+    
+    Kurzes Menü:
+    +3x🍛: dazu drei Beilagen
+    🥗🍮: dazu Salat und Desert
+    🥗: dazu Salat
 
     
     Bug reports und Verbesserungsvorschläge bitte an @elayn
