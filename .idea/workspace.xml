@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12e90a9a-beb3-405b-a283-d5ef158db442" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/helpers.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,10 +42,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
+            <state relative-caret-position="-4">
               <caret line="85" column="59" selection-start-line="85" selection-start-column="59" selection-end-line="85" selection-end-column="59" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
@@ -60,15 +60,15 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/helpers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="70" column="49" selection-start-line="70" selection-start-column="49" selection-end-line="70" selection-end-column="49" />
+            <state relative-caret-position="154">
+              <caret line="50" column="41" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
               <folding>
-                <marker date="1530480646289" expanded="true" signature="282:286" ph="..." />
-                <marker date="1530480646289" expanded="true" signature="2185:2506" ph="..." />
-                <marker date="1530480646289" expanded="true" signature="2782:2788" ph="..." />
+                <marker date="1530528195783" expanded="true" signature="282:286" ph="..." />
+                <marker date="1530528195783" expanded="true" signature="2182:2503" ph="..." />
+                <marker date="1530528195783" expanded="true" signature="2779:2785" ph="..." />
               </folding>
             </state>
           </provider>
@@ -97,8 +97,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>thea</find>
       <find>error</find>
+      <find>thea</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -112,8 +112,8 @@
       <list>
         <option value="$PROJECT_DIR$/testing.py" />
         <option value="$PROJECT_DIR$/scrapper.py" />
-        <option value="$PROJECT_DIR$/helpers.py" />
         <option value="$PROJECT_DIR$/bot.py" />
+        <option value="$PROJECT_DIR$/helpers.py" />
       </list>
     </option>
   </component>
@@ -300,21 +300,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/helpers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="70" column="49" selection-start-line="70" selection-start-column="49" selection-end-line="70" selection-end-column="49" />
-          <folding>
-            <marker date="1530480646289" expanded="true" signature="282:286" ph="..." />
-            <marker date="1530480646289" expanded="true" signature="2185:2506" ph="..." />
-            <marker date="1530480646289" expanded="true" signature="2782:2788" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
+        <state relative-caret-position="-4">
           <caret line="85" column="59" selection-start-line="85" selection-start-column="59" selection-end-line="85" selection-end-column="59" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
@@ -324,6 +312,18 @@
             <marker date="1530489303544" expanded="true" signature="4577:5107" ph="..." />
             <marker date="1530489303544" expanded="true" signature="5356:5984" ph="..." />
             <marker date="1530489303544" expanded="true" signature="5634:5984" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/helpers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="50" column="41" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
+          <folding>
+            <marker date="1530528195783" expanded="true" signature="282:286" ph="..." />
+            <marker date="1530528195783" expanded="true" signature="2182:2503" ph="..." />
+            <marker date="1530528195783" expanded="true" signature="2779:2785" ph="..." />
           </folding>
         </state>
       </provider>

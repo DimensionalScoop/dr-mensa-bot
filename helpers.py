@@ -48,7 +48,7 @@ class Gericht():
         beautify = re.sub("\s?,\s?", ", ", removed_tags)
         beautify = re.sub("\sDip", "-Dip", beautify)
         beautify = re.sub(",? dazu 3 Beilagen nach Wahl", " & drei Beilagen",beautify)
-        beautify = re.sub("Madras", "Thea-S.-Gedächtnis-Madras🍢", beautify)
+        beautify = re.sub("Madras", "Thea-Gedächtnis-Madras🍢", beautify)
         beautify = re.sub("\s\s", " ", beautify)
         # beautify = re.sub(".?$",".",beautify)
         return beautify.strip()
