@@ -15,7 +15,7 @@ def emojify_allergens(tags):
 
 
 def emojify(string):
-    rules = {"Vegane Speise":"🌱👌","Kinderteller":"🧒","Mit Fisch bzw. Meeresfrüchten":"🐟", "Mit Geflügel":"🐣", "Ohne Fleisch":"🌱", "Knoblauch":"Knofi 👌👌", "Mit Schweinefleisch":'🐷',"Mit Rindfleisch":'🐄'}
+    rules = {"Vegane Speise":"🌱👌","Kinderteller":"🧒","Mit Fisch bzw. Meeresfrüchten":"🐟", "Mit Geflügel":"🐣", "Ohne Fleisch":"🌱", "Knoblauch":"Knofi 👌👌", "Mit Schweinefleisch":'🐷',"Mit Rindfleisch":'🐄',"Fleisch aus artgerechter Haltung":'🥩👌'}
     for key in rules:
         string = re.sub(key,rules[key],string)
     return string

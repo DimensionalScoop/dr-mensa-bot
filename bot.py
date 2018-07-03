@@ -68,6 +68,7 @@ def help(bot, update):
     Mit Geflügel:🐣
     Mit Schweinefleisch:🐷
     Mit Rindfleisch:🐄
+    Fleisch aus artgerechter Haltung:🥩👌
     
     Folgende Inhaltsstoffe werden berücksichtigt:
     11:🥃 (Alkohol)
