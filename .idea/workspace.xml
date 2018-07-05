@@ -48,14 +48,14 @@
         <entry file="file://$PROJECT_DIR$/bot.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="334">
-              <caret line="159" column="69" selection-start-line="159" selection-start-column="69" selection-end-line="159" selection-end-column="69" />
+              <caret line="178" column="12" lean-forward="true" selection-start-line="178" selection-start-column="12" selection-end-line="178" selection-end-column="12" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <marker date="1530779667104" expanded="true" signature="1669:1745" ph="..." />
-                <marker date="1530779667104" expanded="true" signature="3046:3400" ph="..." />
-                <marker date="1530779667104" expanded="true" signature="3422:3427" ph="..." />
-                <marker date="1530779667104" expanded="true" signature="4619:5154" ph="..." />
-                <marker date="1530779667104" expanded="true" signature="5403:6031" ph="..." />
+                <marker date="1530795770605" expanded="true" signature="1669:1745" ph="..." />
+                <marker date="1530795770605" expanded="true" signature="3046:3400" ph="..." />
+                <marker date="1530795770605" expanded="true" signature="3422:3427" ph="..." />
+                <marker date="1530795770605" expanded="true" signature="4619:5154" ph="..." />
+                <marker date="1530795770605" expanded="true" signature="5403:6086" ph="..." />
               </folding>
             </state>
           </provider>
@@ -238,14 +238,21 @@
       <option name="project" value="LOCAL" />
       <updated>1530608659784</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fetch menu at 8 o' clock">
+      <created>1530779704197</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1530779704197</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-24" width="1368" height="793" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.010574019" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.004531722" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -277,7 +284,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="implemented &quot;Fleisch aus artgerechter Haltung&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented &quot;Fleisch aus artgerechter Haltung&quot;" />
+    <MESSAGE value="Fetch menu at 8 o' clock" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fetch menu at 8 o' clock" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../clebsch-gordan-bot/main.py">
@@ -329,14 +337,14 @@
     <entry file="file://$PROJECT_DIR$/bot.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="334">
-          <caret line="159" column="69" selection-start-line="159" selection-start-column="69" selection-end-line="159" selection-end-column="69" />
+          <caret line="178" column="12" lean-forward="true" selection-start-line="178" selection-start-column="12" selection-end-line="178" selection-end-column="12" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <marker date="1530779667104" expanded="true" signature="1669:1745" ph="..." />
-            <marker date="1530779667104" expanded="true" signature="3046:3400" ph="..." />
-            <marker date="1530779667104" expanded="true" signature="3422:3427" ph="..." />
-            <marker date="1530779667104" expanded="true" signature="4619:5154" ph="..." />
-            <marker date="1530779667104" expanded="true" signature="5403:6031" ph="..." />
+            <marker date="1530795770605" expanded="true" signature="1669:1745" ph="..." />
+            <marker date="1530795770605" expanded="true" signature="3046:3400" ph="..." />
+            <marker date="1530795770605" expanded="true" signature="3422:3427" ph="..." />
+            <marker date="1530795770605" expanded="true" signature="4619:5154" ph="..." />
+            <marker date="1530795770605" expanded="true" signature="5403:6086" ph="..." />
           </folding>
         </state>
       </provider>

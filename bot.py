@@ -175,8 +175,11 @@ def fetch_and_send_menu(bot, job):
 
 def send_menu_to_subscribers():
     print("Sending menu to", len(subscribers), "subscribers.")
-    for s in subscribers:
-        menu(bot, s)
+    for s in set(subscribers):
+        try:
+            menu(bot, s)
+        except:
+            pass
 
 
 def how_hot_am_i(bot,update):

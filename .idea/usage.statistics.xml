@@ -14,14 +14,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="5385" />
-          <entry key="txt" value="14" />
+          <entry key="py" value="5407" />
+          <entry key="txt" value="39" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="14" />
-          <entry key="Python" value="5385" />
+          <entry key="PLAIN_TEXT" value="39" />
+          <entry key="Python" value="5407" />
         </counts>
       </usages-collector>
     </session>
