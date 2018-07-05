@@ -157,7 +157,7 @@ def fetch_menu(bot = None, job = None, callback = None):
         return
 
     try:
-        pickle.dump(latest_menu, open("menus/" + time.strftime("%m-%d-%Y") + ".pickle", "wb"))
+        pickle.dump(latest_menu, open("menus/" + time.strftime("%H%M-%m-%d-%Y") + ".pickle", "wb"))
     except:
         print("Couldn't pickle menu to disk!")
         pass # this is not important enough to crash the bot
@@ -192,6 +192,7 @@ dispatcher.add_handler(tex.CommandHandler('how_hot_am_i', how_hot_am_i))
 
 
 updater.job_queue.run_daily(fetch_and_send_menu, datetime.time(11, 00))
+updater.job_queue.run_daily(fetch_menu, datetime.time(8, 00))
 # updater.job_queue.run_repeating(fetch_and_send_menu,10)
 
 fetch_menu()

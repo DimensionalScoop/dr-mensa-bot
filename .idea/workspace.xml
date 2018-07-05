@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/usage.statistics.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/usage.statistics.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/helpers.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,15 +47,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="70" column="39" lean-forward="true" selection-start-line="70" selection-start-column="39" selection-end-line="70" selection-end-column="39" />
+            <state relative-caret-position="334">
+              <caret line="159" column="69" selection-start-line="159" selection-start-column="69" selection-end-line="159" selection-end-column="69" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <marker date="1530608591797" expanded="true" signature="1669:1745" ph="..." />
-                <marker date="1530608591797" expanded="true" signature="3046:3400" ph="..." />
-                <marker date="1530608591797" expanded="true" signature="3422:3427" ph="..." />
-                <marker date="1530608591797" expanded="true" signature="4619:5149" ph="..." />
-                <marker date="1530608591797" expanded="true" signature="5398:6026" ph="..." />
+                <marker date="1530779667104" expanded="true" signature="1669:1745" ph="..." />
+                <marker date="1530779667104" expanded="true" signature="3046:3400" ph="..." />
+                <marker date="1530779667104" expanded="true" signature="3422:3427" ph="..." />
+                <marker date="1530779667104" expanded="true" signature="4619:5154" ph="..." />
+                <marker date="1530779667104" expanded="true" signature="5403:6031" ph="..." />
               </folding>
             </state>
           </provider>
@@ -65,8 +64,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/helpers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-69">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="345">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <marker date="1530608573716" expanded="true" signature="282:286" ph="..." />
                 <marker date="1530608573716" expanded="true" signature="2224:2545" ph="..." />
@@ -137,6 +136,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -148,7 +148,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -232,13 +231,21 @@
       <option name="presentableId" value="Default" />
       <updated>1530273631304</updated>
     </task>
+    <task id="LOCAL-00001" summary="implemented &quot;Fleisch aus artgerechter Haltung&quot;">
+      <created>1530608659784</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1530608659784</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-24" width="1368" height="793" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.023413897" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.010574019" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -258,7 +265,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" x="0" y="0" width="292" height="593" id="Documentation" order="4" sideWeight="0.50147927" side_tool="true" weight="0.32930514" />
+      <window_info anchor="right" x="0" y="0" width="292" height="593" id="Documentation" order="4" sideWeight="0.50147927" side_tool="true" visible="true" weight="0.32930514" />
       <window_info anchor="right" id="Database" order="5" sideWeight="0.4985207" weight="0.32930514" />
     </layout>
   </component>
@@ -267,6 +274,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="implemented &quot;Fleisch aus artgerechter Haltung&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented &quot;Fleisch aus artgerechter Haltung&quot;" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../clebsch-gordan-bot/main.py">
@@ -293,6 +304,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/helpers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <marker date="1530608573716" expanded="true" signature="282:286" ph="..." />
+            <marker date="1530608573716" expanded="true" signature="2224:2545" ph="..." />
+            <marker date="1530608573716" expanded="true" signature="2821:2827" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/testing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -303,29 +326,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/helpers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-69">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <marker date="1530608573716" expanded="true" signature="282:286" ph="..." />
-            <marker date="1530608573716" expanded="true" signature="2224:2545" ph="..." />
-            <marker date="1530608573716" expanded="true" signature="2821:2827" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="70" column="39" lean-forward="true" selection-start-line="70" selection-start-column="39" selection-end-line="70" selection-end-column="39" />
+        <state relative-caret-position="334">
+          <caret line="159" column="69" selection-start-line="159" selection-start-column="69" selection-end-line="159" selection-end-column="69" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <marker date="1530608591797" expanded="true" signature="1669:1745" ph="..." />
-            <marker date="1530608591797" expanded="true" signature="3046:3400" ph="..." />
-            <marker date="1530608591797" expanded="true" signature="3422:3427" ph="..." />
-            <marker date="1530608591797" expanded="true" signature="4619:5149" ph="..." />
-            <marker date="1530608591797" expanded="true" signature="5398:6026" ph="..." />
+            <marker date="1530779667104" expanded="true" signature="1669:1745" ph="..." />
+            <marker date="1530779667104" expanded="true" signature="3046:3400" ph="..." />
+            <marker date="1530779667104" expanded="true" signature="3422:3427" ph="..." />
+            <marker date="1530779667104" expanded="true" signature="4619:5154" ph="..." />
+            <marker date="1530779667104" expanded="true" signature="5403:6031" ph="..." />
           </folding>
         </state>
       </provider>
