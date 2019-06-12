@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import bs4
 import re
 from helpers import *
+import ssl
 
 def scrap():
     results = {}
@@ -10,6 +11,7 @@ def scrap():
     url = "https://www.stwdo.de/mensa-co/tu-dortmund/hauptmensa/"
     #for testing purposes
     #url = "https://www.stwdo.de/mensa-co/tu-dortmund/hauptmensa/?tx_pamensa_mensa%5Baction%5D=day&tx_pamensa_mensa%5Bcontroller%5D=OnlinePlan&cHash=d69c17785f24fe4043453debb1687c81"
+    ssl._create_default_https_context = ssl._create_unverified_context
     page = urlopen(url)
     soup = BeautifulSoup(page, 'html.parser')
 

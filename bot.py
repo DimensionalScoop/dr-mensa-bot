@@ -194,7 +194,7 @@ dispatcher.add_handler(tex.CommandHandler('how_hot_am_i', how_hot_am_i))
 
 
 
-updater.job_queue.run_daily(fetch_and_send_menu, datetime.time(11, 00))
+updater.job_queue.run_daily(fetch_and_send_menu, datetime.time(10, 55))
 updater.job_queue.run_daily(fetch_menu, datetime.time(8, 00))
 # updater.job_queue.run_repeating(fetch_and_send_menu,10)
 
