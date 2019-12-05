@@ -110,7 +110,13 @@ def menu(bot, update):
         return
 
     menu = ""
-    qotd = wikiquote.qotd(lang='de')
+    try:
+        qotd = wikiquote.qotd(lang='de')
+    except:
+        try:
+            qotd = wikiquote.qotd()
+        except:
+            qotd = ["Ich konnte kein Zitat für diese Woche finden", "Prof. Dr. med. Mensa Bot"]
     menu += "Zitat der Woche:" + "\n" + "\"" +  qotd[0] + "\", " + qotd[1] + "\n\n"
     #menu += "Prof. Dr. Mensa Bot 2.7 will not be maintained past 2020." + "\n\n"
     menu += "Menü für " + latest_menu["Datum"] + "\n\n"
