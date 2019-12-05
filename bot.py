@@ -234,7 +234,8 @@ def how_hot_am_i(bot, update):
     time.sleep(2)
     bot.send_photo(chat_id=chat_id, photo=open("images/pretty-basic-1.png", "rb"))
     bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING)
-
+    time.sleep(5)
+    bot.send_photo(chat_id=chat_id, photo=open("images/pretty-basic-2.png", "rb"))
 
 dispatcher.add_handler(tex.CommandHandler("how_hot_am_i", how_hot_am_i))
 
