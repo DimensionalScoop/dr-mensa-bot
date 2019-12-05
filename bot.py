@@ -9,7 +9,9 @@ import datetime
 import pickle
 import sys
 
-logging.basicConfig(format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s', level = logging.INFO)
+logging.basicConfig(
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
+)
 
 updater = tex.Updater(input("Token plx owo"))
 dispatcher = updater.dispatcher
@@ -27,31 +29,43 @@ print("Started Dr. Mensa Bot:", bot.getMe())
 # Handler functions
 def start(bot, update):
     message = "Dies ist der _Drop-in replacement (Dr.) Mensa Bot_!"
-    bot.sendMessage(chat_id = update.message.chat_id, text = message, parse_mode = telegram.ParseMode.MARKDOWN)
+    bot.sendMessage(
+        chat_id=update.message.chat_id,
+        text=message,
+        parse_mode=telegram.ParseMode.MARKDOWN,
+    )
     help(bot, update)
 
 
-dispatcher.add_handler(tex.CommandHandler('start', start))
+dispatcher.add_handler(tex.CommandHandler("start", start))
 
 
 def subscribe(bot, update):
     message = "Ihr bekommt ab jetzt jeden Tag um 11 Uhr das Mensa-Menü automatisch zugeschickt!"
     subscribers.append(update.message.chat_id)
     pickle.dump(subscribers, open("subscribers.pickle", "wb"))
-    bot.sendMessage(chat_id = update.message.chat_id, text = message, parse_mode = telegram.ParseMode.MARKDOWN)
+    bot.sendMessage(
+        chat_id=update.message.chat_id,
+        text=message,
+        parse_mode=telegram.ParseMode.MARKDOWN,
+    )
 
 
-dispatcher.add_handler(tex.CommandHandler('subscribe', subscribe))
+dispatcher.add_handler(tex.CommandHandler("subscribe", subscribe))
 
 
 def unsubscribe(bot, update):
     message = "Ihr bekommt ab jetzt nichts mehr automatisch zugeschickt!"
     subscribers.remove(update.message.chat_id)
     pickle.dump(subscribers, open("subscribers.pickle", "wb"))
-    bot.sendMessage(chat_id = update.message.chat_id, text = message, parse_mode = telegram.ParseMode.MARKDOWN)
+    bot.sendMessage(
+        chat_id=update.message.chat_id,
+        text=message,
+        parse_mode=telegram.ParseMode.MARKDOWN,
+    )
 
 
-dispatcher.add_handler(tex.CommandHandler('unsubscribe', unsubscribe))
+dispatcher.add_handler(tex.CommandHandler("unsubscribe", unsubscribe))
 
 
 def help(bot, update):
@@ -87,25 +101,34 @@ def help(bot, update):
     Bug reports und Verbesserungsvorschläge bitte an @elayn"""
     # `/grillstation` — Zeigt das Menü der Grillstation an
     # `/beilagen` — Zeigt an, welche Beilagen es im Moment gibt
-    bot.sendMessage(chat_id = update.message.chat_id, text = message, parse_mode = telegram.ParseMode.MARKDOWN)
+    bot.sendMessage(
+        chat_id=update.message.chat_id,
+        text=message,
+        parse_mode=telegram.ParseMode.MARKDOWN,
+    )
 
 
-dispatcher.add_handler(tex.CommandHandler('help', help))
+dispatcher.add_handler(tex.CommandHandler("help", help))
 
-def send_error_msg(bot,update,message="Ich kann kein Menü für heute finden."):
+
+def send_error_msg(bot, update, message="Ich kann kein Menü für heute finden."):
     if type(update) == int:
         chat_id = update
     else:
         chat_id = update.message.chat_id
 
-    bot.sendMessage(chat_id = chat_id, text = message, parse_mode = telegram.ParseMode.MARKDOWN)
-    bot.send_photo(chat_id = chat_id, photo = open('images/archives.jpg', 'rb'))
-dispatcher.add_handler(tex.CommandHandler('error', send_error_msg))
+    bot.sendMessage(
+        chat_id=chat_id, text=message, parse_mode=telegram.ParseMode.MARKDOWN
+    )
+    bot.send_photo(chat_id=chat_id, photo=open("images/archives.jpg", "rb"))
+
+
+dispatcher.add_handler(tex.CommandHandler("error", send_error_msg))
 
 
 def menu(bot, update):
     if latest_menu is None:
-        send_error_msg(bot,update,"Ich kann kein Menü für heute finden.")
+        send_error_msg(bot, update, "Ich kann kein Menü für heute finden.")
         return
 
     menu = ""
@@ -114,7 +137,15 @@ def menu(bot, update):
         tag_line = ""
         for tag in i.tags:
             tag_line += tag if tag != "Kinderteller" else ""
-        menu += tag_line + i.allergens() + " | " + i.beautiful_description() + ", " + i.price + "\n"
+        menu += (
+            tag_line
+            + i.allergens()
+            + " | "
+            + i.beautiful_description()
+            + ", "
+            + i.price
+            + "\n"
+        )
 
     menu = helpers.emojify(menu)
 
@@ -123,10 +154,10 @@ def menu(bot, update):
     else:
         chat_id = update.message.chat_id
 
-    bot.sendMessage(chat_id = chat_id, text = menu, parse_mode = telegram.ParseMode.MARKDOWN)
+    bot.sendMessage(chat_id=chat_id, text=menu, parse_mode=telegram.ParseMode.MARKDOWN)
 
 
-dispatcher.add_handler(tex.CommandHandler('menu', menu))
+dispatcher.add_handler(tex.CommandHandler("menu", menu))
 
 
 def short_menu(bot, update):
@@ -138,13 +169,15 @@ def short_menu(bot, update):
         chat_id = update
     else:
         chat_id = update.message.chat_id
-    bot.sendMessage(chat_id = chat_id, text = menu, parse_mode = telegram.ParseMode.MARKDOWN)
+    bot.sendMessage(chat_id=chat_id, text=menu, parse_mode=telegram.ParseMode.MARKDOWN)
 
 
-dispatcher.add_handler(tex.CommandHandler('short_menu', short_menu))
+dispatcher.add_handler(tex.CommandHandler("short_menu", short_menu))
 
 latest_menu = None
-def fetch_menu(bot = None, job = None, callback = None):
+
+
+def fetch_menu(bot=None, job=None, callback=None):
     print("Fetching menu...")
     global latest_menu
 
@@ -157,10 +190,13 @@ def fetch_menu(bot = None, job = None, callback = None):
         return
 
     try:
-        pickle.dump(latest_menu, open("menus/" + time.strftime("%H%M-%m-%d-%Y") + ".pickle", "wb"))
+        pickle.dump(
+            latest_menu,
+            open("menus/" + time.strftime("%H%M-%m-%d-%Y") + ".pickle", "wb"),
+        )
     except:
         print("Couldn't pickle menu to disk!")
-        pass # this is not important enough to crash the bot
+        pass  # this is not important enough to crash the bot
 
     if callback is not None:
         callback()
@@ -170,7 +206,7 @@ def fetch_and_send_menu(bot, job):
     if datetime.datetime.today().weekday() >= 5:  # it's Saturday or Sunday
         print("No menu on weekends.")
         return
-    fetch_menu(callback = send_menu_to_subscribers)
+    fetch_menu(callback=send_menu_to_subscribers)
 
 
 def send_menu_to_subscribers():
@@ -182,16 +218,17 @@ def send_menu_to_subscribers():
             pass
 
 
-def how_hot_am_i(bot,update):
+def how_hot_am_i(bot, update):
     chat_id = update.message.chat_id
-    bot.send_chat_action(chat_id = chat_id, action = telegram.ChatAction.TYPING)
+    bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING)
     time.sleep(2)
-    bot.send_photo(chat_id = chat_id, photo = open('images/pretty-basic-1.png', 'rb'))
-    bot.send_chat_action(chat_id = chat_id, action = telegram.ChatAction.TYPING)
+    bot.send_photo(chat_id=chat_id, photo=open("images/pretty-basic-1.png", "rb"))
+    bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING)
     time.sleep(5)
-    bot.send_photo(chat_id = chat_id, photo = open('images/pretty-basic-2.png', 'rb'))
-dispatcher.add_handler(tex.CommandHandler('how_hot_am_i', how_hot_am_i))
+    bot.send_photo(chat_id=chat_id, photo=open("images/pretty-basic-2.png", "rb"))
 
+
+dispatcher.add_handler(tex.CommandHandler("how_hot_am_i", how_hot_am_i))
 
 
 updater.job_queue.run_daily(fetch_and_send_menu, datetime.time(10, 55))
