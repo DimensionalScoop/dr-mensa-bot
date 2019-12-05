@@ -8,12 +8,13 @@ from scrapper import scrap
 import datetime
 import pickle
 import sys
+import wikiquote
 
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
 )
 
-updater = tex.Updater(input("Token plx owo"))
+updater = tex.Updater(input("Please send the token provided by the BotFather"))
 dispatcher = updater.dispatcher
 bot = updater.bot
 try:
@@ -132,6 +133,15 @@ def menu(bot, update):
         return
 
     menu = ""
+    try:
+        qotd = wikiquote.qotd(lang='de')
+    except:
+        try:
+            qotd = wikiquote.qotd()
+        except:
+            qotd = ["Ich konnte kein Zitat für diese Woche finden", "Prof. Dr. med. Mensa Bot"]
+    menu += "Zitat der Woche:" + "\n" + "\"" +  qotd[0] + "\", " + qotd[1] + "\n\n"
+    #menu += "Prof. Dr. Mensa Bot 2.7 will not be maintained past 2020." + "\n\n"
     menu += "Menü für " + latest_menu["Datum"] + "\n\n"
     for i in latest_menu["Menu"]:
         tag_line = ""
@@ -226,7 +236,6 @@ def how_hot_am_i(bot, update):
     bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING)
     time.sleep(5)
     bot.send_photo(chat_id=chat_id, photo=open("images/pretty-basic-2.png", "rb"))
-
 
 dispatcher.add_handler(tex.CommandHandler("how_hot_am_i", how_hot_am_i))
 
