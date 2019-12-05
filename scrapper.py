@@ -34,24 +34,27 @@ def scrap():
     menu = soup.find("div", attrs={"class": "meals-body"})
     gerichte = []
     for i in menu.children:
-        if type(i) == bs4.element.Tag:
-            if i.find("div", attrs={"class": "item description"}):
-                tag = i.find_all("div", attrs={"class": re.compile("item category")})
-                tag = tag[0].find("img")
-                category = tag.attrs["alt"]
-                desc = i.find("div", attrs={"class": "item description"}).text.strip()
-                price = i.find(
-                    "div", attrs={"class": "item price student"}
-                ).text.strip()
-                tags = list(
-                    [
-                        k.attrs["alt"]
-                        for k in i.find(
-                            "div", attrs={"class": "item supplies"}
-                        ).findAll("img")
-                    ]
-                )
-                gerichte.append(Gericht(category, desc, tags, price))
+        try:
+            if type(i) == bs4.element.Tag:
+                if i.find("div", attrs={"class": "item description"}):
+                    tag = i.find_all("div", attrs={"class": re.compile("item category")})
+                    tag = tag[0].find("img")
+                    category = tag.attrs["alt"]
+                    desc = i.find("div", attrs={"class": "item description"}).text.strip()
+                    price = i.find(
+                        "div", attrs={"class": "item price student"}
+                    ).text.strip()
+                    tags = list(
+                        [
+                            k.attrs["alt"]
+                            for k in i.find(
+                                "div", attrs={"class": "item supplies"}
+                            ).findAll("img")
+                        ]
+                    )
+                    gerichte.append(Gericht(category, desc, tags, price))
+        except:
+            print("Something didn't parse right. Moving on.")
 
     results["FullMenu"] = gerichte
     results["Menu"] = list(
